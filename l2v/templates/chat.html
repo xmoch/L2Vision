@@ -1,0 +1,24 @@
+{% extends "base2.html" %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+  <table class="fields stats_wide">
+    {% if msgs %}
+      {% for msg in msgs %}
+        <tr>
+          <td class="field msg_{{ msg.cls }}">{{ msg.name }}: {{ msg.text }}</td>
+          <td class="value msg_{{ msg.cls }}">{{ msg.timestamp }}</td>
+        </tr>
+      {% endfor %}
+    {% else %}
+      No messages yet.
+    {% endif %}
+  </table>
+
+  <div class="links">
+    Actions:
+    <a class="action" href="{% url l2v.views.index %}">Home</a>
+  </div>
+{% endblock %}

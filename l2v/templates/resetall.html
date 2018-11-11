@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  div.L2box {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  div.links {
+    margin-top: 50px;
+  }
+{% endblock %}
+
+{% block content %}
+  Reset all statistics.
+  <div>
+    <a class="action" href="{% url l2v.views.index %}">OK</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base2.html" %}
+
+{% block styles %}
+  div.graph {
+  }
+
+  div.graph_one {
+    height: 120px;
+    background-color: black;
+  }
+
+  div.graph_two {
+    height: 120px;
+    background-color: black;
+  }
+
+  div.graph_padding {
+    height: 16px;
+  }
+{% endblock %}
+
+{% block scripts %}
+  <script src="/static/raphael.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/static/g.raphael.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/static/g.bar.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/static/g.line.js" type="text/javascript" charset="utf-8"></script>
+
+  <script type="text/javascript" charset="utf-8">
+    window.onload = function () {
+      var r = Raphael("vitals_graph");
+
+      var xx = [{{ xx_graph_seq }}];
+      var cp = [{{ cp_graph_seq }}];
+      var hp = [{{ hp_graph_seq }}];
+      var mp = [{{ mp_graph_seq }}];
+      var zz = [{{ zz_graph_seq }}];
+
+      var lines = r.g.linechart(0, 0, 860, 120, xx, [cp, hp, mp, zz]);
+      lines.lines[0].attr({stroke: "#c08b00"});
+      lines.lines[1].attr({stroke: "#a23428"});
+      lines.lines[2].attr({stroke: "#0951a8"});
+      lines.lines[3].attr({stroke: "#000000"});
+    };
+  </script>
+{% endblock %}
+
+{% block content %}
+  <div class="graph">
+    <div class="graph_one">
+      <div id="vitals_graph"></div>
+    </div>
+    <div class="graph_padding"></div>
+    <div class="graph_two">
+      <div id="xp_bar_graph"></div>
+    </div>
+  </div>
+  <div class="links">
+    Actions:
+    <a class="action" href="{% url l2v.views.index %}">Home</a>
+    |
+    <a class="action" href="{% url l2v.views.reset name=name %}">Reset Statistics for {{ name }}</a>
+  </div>
+{% endblock %}

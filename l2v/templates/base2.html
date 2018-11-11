@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <title>L2Vision {{ version }} - {{ name }}</title>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <style type="text/css">
+    @import url("/static/styles.css");
+
+    div.L2box {
+      width: 900px;
+      margin-top: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    table.stats {
+      width: 240px;
+    }
+
+    table.stats_wide {
+      width: 100%;
+    }
+
+    div.links {
+      padding-top: 50px;
+    }
+
+    {% block styles %}
+    {% endblock %}
+  </style>
+
+  {% block scripts %}
+  {% endblock %}
+</head>
+<body>
+
+<div class="L2box">
+  <div class="L2box_header">
+    <div class="left_corner"></div>
+    <div class="box_title">L2Vision {{ version }}</div>
+    <div class="right_corner"></div>
+  </div>
+  <div class="L2box_content">
+    <div class="content_frame_outer">
+      <div class="content_frame_inner">
+        <div class="content">
+          <span class="name">{{ name }}</span>
+          <span class="level_label">Lv</span>
+          <span class="level_value">{{ lvl }}</span>
+
+          <div class="L2tab">
+            <div class="tab_{{ view_tab_state }}">
+              <div class="left"></div>
+              <div class="tab_title"><a href="{% url l2v.views.view name=name %}">Character</a></div>
+              <div class="right"></div>
+            </div>
+            <div class="tab_{{ world_map_tab_state }}">
+              <div class="left"></div>
+              <div class="tab_title"><a href="{% url l2v.views.world_map name=name %}">Map</a></div>
+              <div class="right"></div>
+            </div>
+            <div class="tab_{{ loot_tab_state }}">
+              <div class="left"></div>
+              <div class="tab_title"><a href="{% url l2v.views.loot name=name %}">Loot</a></div>
+              <div class="right"></div>
+            </div>
+            <div class="tab_{{ mobs_tab_state }}">
+              <div class="left"></div>
+              <div class="tab_title"><a href="{% url l2v.views.mobs name=name %}">Mobs</a></div>
+              <div class="right"></div>
+            </div>
+            <div class="tab_{{ visitors_tab_state }}">
+              <div class="left"></div>
+              <div class="tab_title"><a href="{% url l2v.views.visitors name=name %}">Visitors</a></div>
+              <div class="right"></div>
+            </div>
+            <div class="tab_{{ chat_tab_state }}">
+              <div class="left"></div>
+              <div class="tab_title"><a href="{% url l2v.views.chat name=name %}">Chat</a></div>
+              <div class="right"></div>
+            </div>
+            <div class="tab_{{ graphs_tab_state }}">
+              <div class="left"></div>
+              <div class="tab_title"><a href="{% url l2v.views.graphs name=name %}">Graphs</a></div>
+              <div class="right"></div>
+            </div>
+          </div>
+          <div class="L2tab_end"></div>
+
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="L2box_footer">
+    <div class="left_corner"></div>
+    <div class="bottom"></div>
+    <div class="right_corner"></div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+{% extends "base2.html" %}
+
+{% block styles %}
+  div.stats {
+    float: left;
+  }
+
+  div.more_stats {
+    float: left;
+    margin-left: 16px;
+  }
+
+  div.links {
+    clear: both;
+  }
+
+  div.last_meter {
+    margin-bottom: 20px;
+  }
+
+  div.meter div.cp_left {
+    position: absolute;
+    top: 0;
+    left: 30px;
+    background: url(/static/bkg_cp_left.jpg) no-repeat top left;
+    width: {{ cp_bar_left }}px;
+    height: 12px;
+  }
+
+  div.meter div.cp_middle {
+    position: absolute;
+    top: 0;
+    left: 38px;
+    background: url(/static/bkg_cp_middle.jpg) repeat-x top left;
+    width: {{ cp_bar_middle }}px;
+    height: 12px;
+  }
+
+  div.meter div.cp_right {
+    position: absolute;
+    top: 0;
+    left: 232px;
+    background: url(/static/bkg_cp_right.jpg) no-repeat top right;
+    width: {{ cp_bar_right }}px;
+    height: 12px;
+  }
+
+  div.meter div.hp_left {
+    position: absolute;
+    top: 0;
+    left: 30px;
+    background: url(/static/bkg_hp_left.jpg) no-repeat top left;
+    width: {{ hp_bar_left }}px;
+    height: 12px;
+  }
+
+  div.meter div.hp_middle {
+    position: absolute;
+    top: 0;
+    left: 38px;
+    background: url(/static/bkg_hp_middle.jpg) repeat-x top left;
+    width: {{ hp_bar_middle }}px;
+    height: 12px;
+  }
+
+  div.meter div.hp_right {
+    position: absolute;
+    top: 0;
+    left: 232px;
+    background: url(/static/bkg_hp_right.jpg) no-repeat top right;
+    width: {{ hp_bar_right }}px;
+    height: 12px;
+  }
+
+  div.meter div.mp_left {
+    position: absolute;
+    top: 0;
+    left: 30px;
+    background: url(/static/bkg_mp_left.jpg) no-repeat top left;
+    width: {{ mp_bar_left }}px;
+    height: 12px;
+  }
+
+  div.meter div.mp_middle {
+    position: absolute;
+    top: 0;
+    left: 38px;
+    background: url(/static/bkg_mp_middle.jpg) repeat-x top left;
+    width: {{ mp_bar_middle }}px;
+    height: 12px;
+  }
+
+  div.meter div.mp_right {
+    position: absolute;
+    top: 0;
+    left: 232px;
+    background: url(/static/bkg_mp_right.jpg) no-repeat top right;
+    width: {{ mp_bar_right }}px;
+    height: 12px;
+  }
+
+  div.meter div.xp_left {
+    position: absolute;
+    top: 0;
+    left: 30px;
+    background: url(/static/bkg_xp_left.jpg) no-repeat top left;
+    width: {{ xp_bar_left }}px;
+    height: 12px;
+  }
+
+  div.meter div.xp_middle {
+    position: absolute;
+    top: 0;
+    left: 38px;
+    background: url(/static/bkg_xp_middle.jpg) repeat-x top left;
+    width: {{ xp_bar_middle }}px;
+    height: 12px;
+  }
+
+  div.meter div.xp_right {
+    position: absolute;
+    top: 0;
+    left: 232px;
+    background: url(/static/bkg_xp_right.jpg) no-repeat top right;
+    width: {{ xp_bar_right }}px;
+    height: 12px;
+  }
+{% endblock %}
+
+{% block content %}
+  <div class="stats">
+    <div class="meter">
+      <div class="label">CP</div>
+      <div class="bleft"></div>
+      <div class="bmiddle"></div>
+      <div class="bright"></div>
+      <div class="cp_left"></div>
+      <div class="cp_middle"></div>
+      <div class="cp_right"></div>
+      <div class="value">{{ cp_cur }} / {{ cp_max }}</div>
+    </div>
+    <div class="meter">
+      <div class="label">HP</div>
+      <div class="bleft"></div>
+      <div class="bmiddle"></div>
+      <div class="bright"></div>
+      <div class="hp_left"></div>
+      <div class="hp_middle"></div>
+      <div class="hp_right"></div>
+      <div class="value">{{ hp_cur }} / {{ hp_max }}</div>
+    </div>
+    <div class="meter">
+      <div class="label">MP</div>
+      <div class="bleft"></div>
+      <div class="bmiddle"></div>
+      <div class="bright"></div>
+      <div class="mp_left"></div>
+      <div class="mp_middle"></div>
+      <div class="mp_right"></div>
+      <div class="value">{{ mp_cur }} / {{ mp_max }}</div>
+    </div>
+    <div class="meter last_meter">
+      <div class="label">Exp</div>
+      <div class="bleft"></div>
+      <div class="bmiddle"></div>
+      <div class="bright"></div>
+      <div class="xp_left"></div>
+      <div class="xp_middle"></div>
+      <div class="xp_right"></div>
+      <div class="value">{{ lvl_pct }}</div>
+    </div>
+
+    <div class="area">
+      <table class="fields stats">
+        <tr>
+          <td class="field">XP</td>
+          <td class="value">{{ xp }}</td>
+        </tr>
+        <tr>
+          <td class="field">SP</td>
+          <td class="value">{{ sp }}</td>
+        </tr>
+        <tr>
+          <td class="field">CP Low</td>
+          <td class="value">{{ cp_lowest }} at {{ cp_lowest_time }}</td>
+        </tr>
+        <tr>
+          <td class="field">HP Low</td>
+          <td class="value">{{ hp_lowest }} at {{ hp_lowest_time }}</td>
+        </tr>
+        <tr>
+          <td class="field">MP Low</td>
+          <td class="value">{{ mp_lowest }} at {{ mp_lowest_time }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="area"><span class="title">Hunt</span>
+      <table class="fields stats">
+        <tr>
+          <td class="field">Hunt Duration</td>
+          <td class="value">{{ hunting_time }}</td>
+        </tr>
+        <tr>
+          <td class="field">XP Pct Gained</td>
+          <td class="value">{{ xp_gain_pct }}</td>
+        </tr>
+        <tr>
+          <td class="field">XP Gained</td>
+          <td class="value">{{ xp_gain }} <span class="more_data">({{ xp_rate }})</span></td>
+        </tr>
+        <tr>
+          <td class="field">SP Gained</td>
+          <td class="value">{{ sp_gain }} <span class="more_data">({{ sp_rate }})</span></td>
+        </tr>
+        <tr>
+          <td class="field">Adena Gained</td>
+          <td class="value">{{ adena_gain }} <span class="more_data">({{ adena_rate }})</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="area"><span class="title">Projections</span>
+      <table class="fields stats">
+        <tr>
+          <td class="field">Next Level In</td>
+          <td class="value">{{ next_level_time }}</td>
+        </tr>
+        <tr>
+           <td class="field">XP/hour</td>
+           <td class="value">{{ 1hr_xp_gain }} <span class="more_data">({{ 1hr_xp_gain_pct }})</span></td>
+        </tr>
+        <tr>
+          <td class="field">SP/hour</td>
+          <td class="value">{{ 1hr_sp_gain }}</td>
+        </tr>
+        <tr>
+          <td class="field">Adena/hour</td>
+          <td class="value">{{ 1hr_adena_gain }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="more_stats">
+    <table class="fields stats">
+      <tr>
+        <td class="field">Current Time</td>
+        <td class="value">{{ current_time }}</td>
+      </tr>
+      <tr>
+        <td class="field">First Ping</td>
+        <td class="value">{{ first_ping }}</td>
+      </tr>
+      <tr>
+        <td class="field">Last Ping</td>
+        <td class="value">{{ last_ping }}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="links">
+    Actions:
+    <a class="action" href="{% url l2v.views.index %}">Home</a>
+  </div>
+
+{% endblock %}

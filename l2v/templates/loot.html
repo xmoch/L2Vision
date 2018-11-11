@@ -1,0 +1,34 @@
+{% extends "base2.html" %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+  <table class="fields stats_wide">
+    {% if items %}
+      {% for item in items %}
+        <tr>
+          {% if item.consumable %}
+            <td class="field hilite">{{ item.name }}</td>
+            <td class="value hilite">{{ item.difference }} <span class="item_total">({{ item.current_count }})</span> <span class="more_data">Rate: {{ item.rate }}</span></td>
+          {% else %}
+            {% if item.hilite %}
+              <td class="field hilite">{{ item.name }}</td>
+              <td class="value hilite">{{ item.difference }} <span class="item_total">({{ item.current_count }})</span></td>
+            {% else %}
+              <td class="field">{{ item.name }}</td>
+              <td class="value">{{ item.difference }} <span class="item_total">({{ item.current_count }})</span></td>
+            {% endif %}
+          {% endif %}
+        </tr>
+      {% endfor %}
+    {% else %}
+      No loot picked up yet.
+    {% endif %}
+  </table>
+
+  <div class="links">
+    Actions:
+    <a class="action" href="{% url l2v.views.index %}">Home</a>
+  </div>
+{% endblock %}

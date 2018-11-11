@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  div.L2box {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  div.characters {
+    margin-left: 20px;
+    margin-bottom: 50px;
+  }
+{% endblock %}
+
+{% block content %}
+  <span class="section">Characters</span>
+
+  <div class="characters">
+    {% if toons %}
+      {% for toon in toons %}
+        <a href="{% url l2v.views.view name=toon %}">{{ toon }}</a><br />
+      {% endfor %}
+    {% else %}
+      No characters reporting.
+    {% endif %}
+  </div>
+
+  <div class="links">
+    Global Actions: <a class="action" href="{% url l2v.views.reset_all %}">Reset Statistics</a>
+  </div>
+{% endblock %}

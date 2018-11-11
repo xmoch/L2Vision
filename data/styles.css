@@ -1,0 +1,331 @@
+
+body {
+  background-color: rgb(0, 0, 0);
+  font-family: arial, helvetica, sans-serif;
+  font-size: 0.75em;
+  color: rgb(190, 150, 90);
+}
+
+div.L2tab {
+  background: url(/static/bkg_tab.jpg) repeat-x bottom left;
+  height: 22px;
+  margin-top: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+div.L2tab div.tab_selected {
+  float: left;
+  position: relative;
+  background: url(/static/bkg_tab_selected.jpg) repeat-x bottom left;
+  width: 100px;
+  height: 22px;
+}
+
+div.L2tab div.tab_selected div.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(/static/bkg_tab_selected_left.jpg) no-repeat bottom left;
+  width: 8px;
+  height: 22px;
+}
+
+div.L2tab div.tab_selected div.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url(/static/bkg_tab_selected_right.jpg) no-repeat bottom right;
+  width: 8px;
+  height: 22px;
+}
+
+div.L2tab div.tab_normal {
+  float: left;
+  position: relative;
+  background: url(/static/bkg_tab_normal.jpg) repeat-x bottom left;
+  width: 100px;
+  height: 22px;
+}
+
+div.L2tab div.tab_normal div.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(/static/bkg_tab_normal_left.jpg) no-repeat bottom left;
+  width: 8px;
+  height: 22px;
+}
+
+div.L2tab div.tab_normal div.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url(/static/bkg_tab_normal_right.jpg) no-repeat bottom right;
+  width: 8px;
+  height: 22px;
+}
+
+div.L2tab div.tab_title {
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 6px;
+  text-align: center;
+  color: rgb(190, 150, 90);
+}
+
+div.L2tab div.tab_title a {
+  text-decoration: none;
+}
+
+div.L2tab_end {
+  clear: both;
+  height: 16px;
+}
+
+div.L2box {
+  background-color: rgb(0, 0, 0);
+}
+
+div.L2box div.L2box_header {
+  position: relative;
+  background: url(/static/bkg_box_n.jpg);
+  height: 52px;
+}
+
+div.L2box div.L2box_header div.left_corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(/static/bkg_box_nw.jpg) no-repeat top left;
+  width: 21px;
+  height: 52px;
+}
+
+div.L2box div.L2box_header div.box_title {
+  background: url(/static/bkg_box_crown.jpg) no-repeat top center;
+  padding-top: 17px;
+  height: 52px;
+  text-align: center;
+  color: white;
+}
+
+div.L2box div.L2box_header div.right_corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url(/static/bkg_box_ne.jpg) no-repeat top right;
+  width: 21px;
+  height: 52px;
+}
+
+div.L2box div.L2box_content {
+  background: rgb(0, 0, 0) url(/static/bkg_box.jpg);
+}
+
+div.L2box div.L2box_content div.content_frame_outer {
+  background: url(/static/bkg_box_w.jpg) repeat-y left;
+}
+
+div.L2box div.L2box_content div.content_frame_inner {
+  background: url(/static/bkg_box_e.jpg) repeat-y right;
+}
+
+div.L2box div.L2box_content div.content {
+  background: url(/static/bkg_box.jpg) repeat;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 21px 0px 21px;
+}
+
+div.L2box div.L2box_footer {
+  position: relative;
+  background: url(/static/bkg_box_s.jpg) repeat-x 0 0;
+  height: 24px;
+}
+
+div.L2box div.L2box_footer div.left_corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(/static/bkg_box_sw.jpg) no-repeat bottom left;
+  width: 21px;
+  height: 24px;
+}
+
+div.L2box div.L2box_footer div.bottom {
+  height: 24px;
+}
+
+div.L2box div.L2box_footer div.right_corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url(/static/bkg_box_se.jpg) no-repeat bottom right;
+  width: 21px;
+  height: 24px;
+}
+
+div.meter {
+  position: relative;
+  width: 246px;
+  height: 12px;
+}
+
+div.meter div.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+}
+
+div.meter div.bleft {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  background: url(/static/bkg_bar_left.jpg) no-repeat top left;
+  width: 8px;
+  height: 12px;
+}
+
+div.meter div.bmiddle {
+  position: absolute;
+  top: 0;
+  left: 38px;
+  background: url(/static/bkg_bar_middle.jpg) repeat-x top left;
+  width: 194px;
+  height: 12px;
+}
+
+div.meter div.bright {
+  position: absolute;
+  top: 0;
+  left: 232px;
+  background: url(/static/bkg_bar_right.jpg) no-repeat top right;
+  width: 8px;
+  height: 12px;
+}
+
+div.meter div.value {
+  position: absolute;
+  top: 0;
+  left: 38px;
+  width: 194px;
+  height: 12px;
+  text-align: center;
+  font-size: 0.90em;
+  font-weight: bold;
+  text-shadow: black 1px 1px 2px;
+  color: white;
+}
+
+span.section {
+  display: block;
+  font-size: 1.10em;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+}
+
+span.name {
+  color: white;
+}
+
+span.level_label {
+  margin-left: 15px;
+  color: rgb(170, 170, 170);
+}
+
+span.level_value {
+  color: rgb(190, 150, 90);
+}
+
+span.more_data {
+  color: rgb(120, 120, 120);
+}
+
+span.item_total {
+  color: rgb(65, 55, 40);
+}
+
+div.area {
+  margin-bottom: 8px;
+}
+
+div.area span.title {
+  display: block;
+  color: white;
+}
+
+table.fields {
+  border-collapse: collapse;
+}
+
+td.field {
+  text-align: left;
+  color: rgb(120, 120, 120);
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+td.value {
+  text-align: right;
+  color: rgb(190, 150, 90);
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+td.hilite {
+  color: white;
+}
+
+td.msg_0 {
+  color: white;
+}
+
+td.msg_1 {
+  color: rgb(255, 100, 0);
+}
+
+td.msg_2 {
+  color: rgb(255, 0, 255);
+}
+
+td.msg_3 {
+  color: rgb(0, 255, 0);
+}
+
+td.msg_4 {
+  color: rgb(100, 50, 255);
+}
+
+td.msg_8 {
+  color: rgb(255, 180, 180);
+}
+
+td.msg_9 {
+  color: rgb(150, 255, 200);
+}
+
+td.msg_17 {
+  color: rgb(0, 128, 255);
+}
+
+table.stats_wide td {
+  border-bottom: 1px solid rgb(40, 30, 0);
+}
+
+a {
+  color: rgb(190, 150, 90);
+}
+
+a:hover {
+  color: rgb(255, 255, 255);
+}
+
+a.action {
+  color: rgb(255, 175, 0);
+}
+
+a.action:hover {
+  color: rgb(255, 255, 255);
+}

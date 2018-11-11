@@ -1,0 +1,29 @@
+{% extends "base2.html" %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+  <table class="fields stats_wide">
+    {% if mobs %}
+      {% for mob in mobs %}
+        <tr>
+          {% if mob.hilite %}
+            <td class="field hilite">{{ mob.name }}</td>
+            <td class="value hilite">{{ mob.kills }}</td>
+          {% else %}
+            <td class="field">{{ mob.name }}</td>
+            <td class="value">{{ mob.kills }}</td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    {% else %}
+      No mobs killed yet.
+    {% endif %}
+  </table>
+
+  <div class="links">
+    Actions:
+    <a class="action" href="{% url l2v.views.index %}">Home</a>
+  </div>
+{% endblock %}

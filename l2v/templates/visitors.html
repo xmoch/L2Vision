@@ -1,0 +1,24 @@
+{% extends "base2.html" %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+  <table class="fields stats_wide">
+    {% if visitors %}
+      {% for visitor in visitors %}
+        <tr>
+          <td class="field">{{ visitor.name }}</td>
+          <td class="value">{{ visitor.timestamp }}</td>
+        </tr>
+      {% endfor %}
+    {% else %}
+      No visitors yet.
+    {% endif %}
+  </table>
+
+  <div class="links">
+    Actions:
+    <a class="action" href="{% url l2v.views.index %}">Home</a>
+  </div>
+{% endblock %}
